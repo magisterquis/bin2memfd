@@ -107,15 +107,3 @@ Options:
 		log.Fatalf("Writing program: %s", err)
 	}
 }
-
-func f() {
-	b := slurpImplant()
-	e, err := bin2memfd.Encoder{
-		Args: []string{"cron", "hourly-cleanup"},
-		Name: "cron-tmp48240",
-	}.Perl(b)
-	if nil != err {
-		log.Fatalf("Perlizing: %s", err)
-	}
-	serveToStager(e)
-}
